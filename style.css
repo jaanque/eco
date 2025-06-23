@@ -6,6 +6,7 @@ body {
     color: #333333;
     line-height: 1.6;
     overflow-x: hidden; /* Prevents horizontal scrollbar from body due to section overflows */
+    perspective: 1000px; /* Global perspective for 3D effects */
 }
 
 .container {
@@ -24,6 +25,7 @@ h2 {
     font-size: 2.5em;
     margin-bottom: 40px;
     text-align: center;
+    will-change: transform, opacity; /* For GSAP section title animations */
 }
 
 h3 {
@@ -59,6 +61,8 @@ header {
     left: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    transform-origin: top center; /* For GSAP animations */
+    will-change: transform, opacity; /* For GSAP animations */
 }
 
 header .container {
@@ -122,17 +126,20 @@ header nav ul li a:hover {
     position: relative;
     z-index: 2;
     text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    /* perspective: 800px; /* Add perspective for 3D child animations if needed here */
 }
 
 .hero-content h2 {
     font-size: 4em;
     margin-bottom: 10px;
     color: #F5F5DC;
+    will-change: transform; /* For mouse parallax */
 }
 
 .hero-content p {
     font-size: 1.5em;
     color: #B9A44C;
+    will-change: transform; /* For mouse parallax */
 }
 
 /* Content Sections */
@@ -151,7 +158,9 @@ header nav ul li a:hover {
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* transition: transform 0.3s ease, box-shadow 0.3s ease; GSAP handles this now */
+    transform-style: preserve-3d; /* Ensures 3D transforms apply correctly */
+    will-change: transform, opacity; /* Performance hint */
 }
 
 .floating-box:hover {
@@ -203,6 +212,9 @@ header nav ul li a:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
+    transform-style: preserve-3d; /* For 3D effects on children or the item itself */
+    /* perspective: 600px; /* If items have internal 3D structure */
+    will-change: transform, opacity; /* For GSAP animations */
 }
 
 .scroll-item:last-child {
@@ -284,13 +296,14 @@ header nav ul li a:hover {
     display: inline-block;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease /* GSAP will handle transform */;
+    will-change: transform; /* Hint for browser optimization */
 }
 
 .cta-button:hover {
     background-color: #5A7878; /* Darker Teal */
     color: #fff;
-    transform: translateY(-2px);
+    /* transform: translateY(-2px); GSAP will handle this */
 }
 
 #contact form button.cta-button {
