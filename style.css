@@ -1,0 +1,379 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #F5F5DC; /* Creamy Off-White */
+    color: #333333;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevents horizontal scrollbar from body due to section overflows */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #2A2F4F; /* Deep Indigo */
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.8em;
+    color: #B9A44C; /* Muted Gold */
+}
+
+a {
+    color: #6B8E8E; /* Soft Teal */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #B9A44C; /* Muted Gold */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Header */
+header {
+    background-color: rgba(42, 47, 79, 0.85); /* Deep Indigo with transparency */
+    backdrop-filter: blur(8px);
+    color: #F5F5DC;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 1.8em;
+    margin: 0;
+    color: #F5F5DC;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 25px;
+}
+
+header nav ul li a {
+    color: #F5F5DC;
+    font-weight: 600;
+    font-size: 1em;
+}
+
+header nav ul li a:hover {
+    color: #B9A44C;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    color: #F5F5DC;
+    padding-top: 70px; /* Account for fixed header */
+    background: url('placeholder-hero.svg') no-repeat center center/cover; /* Placeholder */
+}
+
+.hero-background-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(42, 47, 79, 0.5); /* Deep Indigo overlay */
+    backdrop-filter: blur(3px);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.hero-content h2 {
+    font-size: 4em;
+    margin-bottom: 10px;
+    color: #F5F5DC;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    color: #B9A44C;
+}
+
+/* Content Sections */
+.content-section {
+    padding: 80px 0;
+    margin-top: 70px; /* Push content below fixed header */
+}
+.content-section:first-of-type {
+     margin-top: 0; /* Hero section doesn't need this margin */
+}
+
+
+.floating-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* Horizontal Scroll Sections */
+.horizontal-scroll-section {
+    overflow-x: hidden; /* Hide direct scrollbar for the section */
+    padding-bottom: 40px; /* Space for scrollbar if it were visible */
+}
+
+.horizontal-scroll-section .container h2 {
+    margin-bottom: 40px; /* Standard margin for section titles */
+}
+
+.horizontal-scroll-content {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling for this container */
+    padding: 20px 0 40px 0; /* Padding for items and potential scrollbar */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #B9A44C #2A2F4F; /* For Firefox */
+}
+
+/* Scrollbar styling for WebKit browsers (Chrome, Safari) */
+.horizontal-scroll-content::-webkit-scrollbar {
+    height: 10px;
+}
+
+.horizontal-scroll-content::-webkit-scrollbar-track {
+    background: #2A2F4F; /* Deep Indigo */
+    border-radius: 5px;
+}
+
+.horizontal-scroll-content::-webkit-scrollbar-thumb {
+    background-color: #B9A44C; /* Muted Gold */
+    border-radius: 5px;
+    border: 2px solid #2A2F4F; /* Deep Indigo */
+}
+
+.scroll-item {
+    flex: 0 0 auto; /* Prevent items from shrinking */
+    width: 300px; /* Adjust width as needed */
+    margin-right: 25px;
+    background-color: #fff; /* Ensure floating box style applies */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.scroll-item:last-child {
+    margin-right: 0; /* Remove margin from the last item */
+}
+
+.scroll-item img {
+    margin-bottom: 15px;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover;
+}
+
+/* Specific Section Styling */
+
+/* Music Section */
+#music .scroll-item h3 {
+    margin-top: 0;
+}
+
+/* Events Section */
+#events .event-item {
+    text-align: left;
+}
+#events .event-item h3 {
+    font-size: 1.5em;
+}
+#events .event-item p {
+    font-size: 0.9em;
+    margin-bottom: 8px;
+}
+
+/* Gallery Section */
+#gallery .gallery-item img {
+    height: 250px;
+    object-fit: cover;
+    width: 100%;
+}
+#gallery .gallery-item p {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 10px;
+}
+
+/* Contact Section */
+#contact form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2A2F4F;
+}
+
+#contact form input,
+#contact form textarea {
+    width: calc(100% - 22px); /* Account for padding and border */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+#contact form input:focus,
+#contact form textarea:focus {
+    border-color: #B9A44C;
+    box-shadow: 0 0 5px rgba(185, 164, 76, 0.5);
+    outline: none;
+}
+
+.cta-button {
+    background-color: #6B8E8E; /* Soft Teal */
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: #5A7878; /* Darker Teal */
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+#contact form button.cta-button {
+    width: 100%;
+}
+
+
+/* Footer */
+footer {
+    background-color: #2A2F4F; /* Deep Indigo */
+    color: #F5F5DC;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px; /* Ensure space before footer */
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+    header nav ul {
+        margin-top: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    header nav ul li {
+        margin: 5px 10px;
+    }
+
+    .hero-content h2 {
+        font-size: 2.8em;
+    }
+    .hero-content p {
+        font-size: 1.2em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .scroll-item {
+        width: 250px; /* Smaller items on smaller screens */
+    }
+
+    .horizontal-scroll-content {
+        /* Add padding to the sides of the container itself for better touch interaction near edges */
+        padding-left: 20px; /* This is for the content *inside* the scroll area */
+        padding-right: 20px; /* This is for the content *inside* the scroll area */
+    }
+     .horizontal-scroll-section > .container { /* Target direct child container for title */
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+    }
+    .horizontal-scroll-section > .container h2 { /* Target h2 within that specific container */
+        padding-left: calc(5% + 20px); /* Align with global .container padding (90% width means 5% margin each side) */
+        padding-right: calc(5% + 20px); /* Ensure it doesn't overflow if text is long */
+        text-align: left;
+        box-sizing: border-box; /* Include padding in width calculation */
+        width: 100%;
+    }
+
+
+    #contact form input,
+    #contact form textarea {
+        width: calc(100% - 22px); /* Adjust for padding/border */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h2 {
+        font-size: 2.2em;
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+    .scroll-item {
+        width: 220px;
+    }
+}
